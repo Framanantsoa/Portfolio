@@ -19,10 +19,10 @@ portfolio/
 ├── js/
 │ └── main.js
 ├── assets/
-│ ├── poultry.png
-│ ├── recruitment.png
-│ ├── ticketing.png
-│ └── boulangerie.png
+│ ├── poultry.webp
+│ ├── recruitment.webp
+│ ├── ticketing.webp
+│ └── boulangerie.webp
 └── README.md
 ```
 
