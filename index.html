@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>François ANDRIAMANANTSOA — Développeur Full-Stack Junior</title>
+  <meta name="description" content="Portfolio de François ANDRIAMANANTSOA, développeur Full-Stack Junior spécialisé .NET et JavaScript." />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            base: '#0a0a0f',
+            surface: '#12121a',
+            border: '#1f1f2e',
+            primary: '#6366f1',
+            accent: '#22d3ee',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-base text-zinc-300 font-sans antialiased">
+
+  <!-- ===================== NAV ===================== -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-base/80 backdrop-blur border-b border-border">
+    <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="#hero" class="font-mono text-accent text-sm">~/manantsoa</a>
+
+      <ul class="hidden md:flex items-center gap-8 text-sm">
+        <li><a href="#about"      class="hover:text-white transition" data-i18n="nav.about">À propos</a></li>
+        <li><a href="#experience" class="hover:text-white transition" data-i18n="nav.experience">Expérience</a></li>
+        <li><a href="#projects"   class="hover:text-white transition" data-i18n="nav.projects">Projets</a></li>
+        <li><a href="#skills"     class="hover:text-white transition" data-i18n="nav.skills">Compétences</a></li>
+        <li><a href="#contact"    class="hover:text-white transition" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+
+      <div class="flex items-center gap-3">
+        <button id="langToggle" class="font-mono text-xs px-2 py-1 border border-border rounded hover:border-accent hover:text-accent transition">
+          FR / EN
+        </button>
+        <button id="menuToggle" class="md:hidden text-zinc-300 hover:text-white" aria-label="Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-border bg-base px-6 py-4">
+      <ul class="flex flex-col gap-3 text-sm">
+        <li><a href="#about"      class="block hover:text-accent" data-i18n="nav.about">À propos</a></li>
+        <li><a href="#experience" class="block hover:text-accent" data-i18n="nav.experience">Expérience</a></li>
+        <li><a href="#projects"   class="block hover:text-accent" data-i18n="nav.projects">Projets</a></li>
+        <li><a href="#skills"     class="block hover:text-accent" data-i18n="nav.skills">Compétences</a></li>
+        <li><a href="#contact"    class="block hover:text-accent" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section id="hero" class="min-h-screen flex items-center pt-16">
+    <div class="max-w-6xl mx-auto px-6 w-full">
+      <p class="font-mono text-accent text-sm mb-4" data-i18n="hero.greeting">Bonjour, je suis</p>
+      <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tight mb-4">
+        François ANDRIAMANANTSOA
+      </h1>
+      <h2 class="text-2xl md:text-4xl font-semibold text-zinc-400 mb-6" data-i18n="hero.title">
+        Développeur Full-Stack Junior — .NET / JS
+      </h2>
+      <p class="max-w-2xl text-lg text-zinc-400 leading-relaxed mb-4" data-i18n="hero.pitch">
+        Diplômé d'un Licence en Web &amp; Design à l'IT-University d'Antananarivo. À la recherche d'une première
+        opportunité en tant que développeur full-stack, après un stage de 10 mois chez Ravinala Airports.
+      </p>
+      <p class="font-mono text-sm text-zinc-500 mb-10">
+        📍 Ivato, Antananarivo, Madagascar &nbsp;·&nbsp;
+        <span class="text-emerald-400">●</span>
+        <span data-i18n="hero.available">Disponible depuis le 21 août 2026</span>
+      </p>
+
+      <div class="flex flex-wrap gap-4">
+        <a href="#projects"
+           class="px-6 py-3 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg transition"
+           data-i18n="hero.ctaProjects">Voir mes projets</a>
+        <a href="#contact"
+           class="px-6 py-3 border border-border hover:border-accent hover:text-accent rounded-lg transition"
+           data-i18n="hero.ctaContact">Me contacter</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section id="about" class="py-24 border-t border-border">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-sm font-mono text-accent mb-2" data-i18n="about.tag">01 — À propos</h2>
+      <h3 class="text-3xl md:text-4xl font-bold text-white mb-8" data-i18n="about.title">Qui suis-je ?</h3>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="md:col-span-2 space-y-4 text-zinc-400 leading-relaxed">
+          <p data-i18n="about.p1">
+            Développeur full-stack junior basé à Antananarivo, je conçois et développe des applications web
+            complètes — de la base de données à l'interface utilisateur. Je privilégie les solutions simples,
+            documentées et maintenables.
+          </p>
+          <p data-i18n="about.p2">
+            Lors de mon stage chez Ravinala Airports, j'ai développé une application interne de gestion du
+            recrutement (ASP.NET Core 8 + React), en collaboration directe avec les équipes RH et DSI. Ce projet
+            a également constitué mon projet de fin d'étude en Licence.
+          </p>
+          <p data-i18n="about.p3">
+            Je suis aujourd'hui à la recherche d'un premier poste où je pourrai continuer à progresser sur
+            des projets concrets, aux côtés d'une équipe expérimentée.
+          </p>
+        </div>
+
+        <aside class="space-y-4 text-sm">
+          <div class="p-4 bg-surface border border-border rounded-lg">
+            <p class="font-mono text-xs text-zinc-500 mb-2" data-i18n="about.educationLabel">FORMATION</p>
+            <p class="text-white font-medium" data-i18n="about.diplom">Licence en Web &amp; Design</p>
+            <p class="text-zinc-400">IT-University, Antananarivo</p>
+          </div>
+          <div class="p-4 bg-surface border border-border rounded-lg">
+            <p class="font-mono text-xs text-zinc-500 mb-2" data-i18n="about.languagesLabel">LANGUES</p>
+            <ul class="space-y-1 text-zinc-300">
+              <li data-i18n="about.lang.mg">Malagasy — maternelle</li>
+              <li data-i18n="about.lang.fr">Français — courant</li>
+              <li data-i18n="about.lang.en">Anglais — intermédiaire</li>
+              <li data-i18n="about.lang.es">Espagnol — débutant</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EXPERIENCE ===================== -->
+  <section id="experience" class="py-24 border-t border-border">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-sm font-mono text-accent mb-2" data-i18n="exp.tag">02 — Expérience</h2>
+      <h3 class="text-3xl md:text-4xl font-bold text-white mb-12" data-i18n="exp.title">Parcours professionnel</h3>
+
+      <div class="relative pl-8 border-l border-border">
+        <div class="absolute -left-[7px] top-2 w-3 h-3 rounded-full bg-primary"></div>
+
+        <p class="font-mono text-xs text-zinc-500 mb-1">21 Oct 2025 — 21 Aug 2026</p>
+        <h4 class="text-xl font-semibold text-white">Ravinala Airports</h4>
+        <p class="text-accent text-sm mb-4" data-i18n="exp.role">Stagiaire Développeur — DRH / DSI</p>
+
+        <ul class="space-y-2 text-zinc-400 max-w-3xl">
+          <li class="flex gap-3">
+            <span class="text-accent mt-1">▸</span>
+            <span data-i18n="exp.b1">
+              Conception et développement de <strong class="text-zinc-200">Recruitment-App</strong>,
+              application interne de gestion des demandes de recrutement, fiches de poste, candidatures
+              et entretiens (ASP.NET Core 8 + React + SQL Server).
+            </span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-accent mt-1">▸</span>
+            <span data-i18n="exp.b2">
+              Animation des revues de sprint avec les équipes DSI et DRH : démonstration des fonctionnalités
+              livrées et recueil des retours utilisateurs.
+            </span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-accent mt-1">▸</span>
+            <span data-i18n="exp.b3">
+              Rôle d'interface entre les équipes métier (RH) et techniques (DSI), pour traduire les besoins
+              fonctionnels en spécifications techniques.
+            </span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-accent mt-1">▸</span>
+            <span data-i18n="exp.b4">
+                Déploiement des deux applications en <strong class="text-zinc-200">pré-production</strong>,
+                et animation des revues de sprint avec les équipes DSI et DRH.
+            </span>
+        </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROJECTS ===================== -->
+  <section id="projects" class="py-24 border-t border-border">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-sm font-mono text-accent mb-2" data-i18n="proj.tag">03 — Projets</h2>
+      <h3 class="text-3xl md:text-4xl font-bold text-white mb-12" data-i18n="proj.title">Projets sélectionnés</h3>
+
+      <div class="grid md:grid-cols-2 gap-8">
+
+        <!-- Poultry-ERP -->
+        <article class="group bg-surface border border-border rounded-xl overflow-hidden hover:border-primary transition">
+          <div class="h-48 bg-zinc-900 overflow-hidden">
+            <img src="assets/poultry.webp" alt="Poultry-ERP" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition duration-500" onerror="this.style.display='none'">
+          </div>
+          <div class="p-6">
+            <h4 class="text-xl font-semibold text-white mb-2">Poultry-ERP</h4>
+            <p class="text-zinc-400 text-sm mb-4" data-i18n="proj.poultry.desc">
+              Application web de gestion d'élevage : suivi des lots, consommation d'aliments,
+              production et mortalité des poulets.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="text-xs font-mono px-2 py-1 bg-base border border-border rounded text-accent">SvelteKit 5</span>
+              <span class="text-xs font-mono px-2 py-1 bg-base border border-border rounded text-accent">PostgreSQL 14</span>
+            </div>
+            <div class="flex gap-4 text-sm">
+              <a href="https://poultry-erp.netlify.app" target="_blank" rel="noopener" class="text-accent hover:underline" data-i18n="proj.demo">Démo ↗</a>
+              <a href="https://github.com/Framanantsoa/poultry-ERP" target="_blank" rel="noopener" class="text-zinc-400 hover:text-white" data-i18n="proj.code">Code ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Recruitment-App -->
+        <article class="group bg-surface border border-border rounded-xl overflow-hidden hover:border-primary transition">
+          <div class="h-48 bg-zinc-900 overflow-hidden">
+            <img src="assets/recruitment.webp" alt="Recruitment-App" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition duration-500" onerror="this.style.display='none'">
+          </div>
+          <div class="p-6">
+            <h4 class="text-xl font-semibold text-white mb-2">Recruitment-App</h4>
+            <p class="text-zinc-400 text-sm mb-4" data-i18n="proj.recruitment.desc">
+              Application interne de gestion des demandes de recrutement : fiches de poste, candidatures
+              et entretiens. Projet de stage chez Ravinala Airports et projet de fin d'étude en Licence.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="text-xs font-mono px-2 py-1 bg-base border border-border rounded text-accent">ASP.NET Core 8</span>
+              <span class="text-xs font-mono px-2 py-1 bg-base border border-border rounded text-accent">React 18</span>
+              <span class="text-xs font-mono px-2 py-1 bg-base border border-border rounded text-accent">SQL Server 2022</span>
+            </div>
+            <div class="flex gap-4 text-sm">
+              <span class="text-zinc-500 italic" data-i18n="proj.internal">Application interne — non publique</span>
+              <a href="https://github.com/Framanantsoa/Recrutement" target="_blank" rel="noopener" class="text-zinc-400 hover:text-white" data-i18n="proj.code">Code ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Ticketing -->
+        <article class="group bg-surface border border-border rounded-xl overflow-hidden hover:border-primary transition">
+          <div class="h-48 bg-zinc-900 overflow-hidden">
+            <img src="assets/ticketing.webp" alt="Ticketing" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition duration-500" onerror="this.style.display='none'">
+          </div>
+          <div class="p-6">
+            <h4 class="text-xl font-semibold text-white mb-2">Ticketing</h4>
+            <p class="text-zinc-400 text-sm mb-4" data-i18n="proj.ticketing.desc">
+              Application de gestion de tickets articulée autour de trois modules : un mini-framework Java,
+              une API Spring Boot et une couche Express/CDN.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="text-xs font-mono px-2 py-1 bg-base border border-border rounded text-accent">Java 11 / 17</span>
+              <span class="text-xs font-mono px-2 py-1 bg-base border border-border rounded text-accent">Spring Boot</span>
+              <span class="text-xs font-mono px-2 py-1 bg-base border border-border rounded text-accent">Node 18</span>
+              <span class="text-xs font-mono px-2 py-1 bg-base border border-border rounded text-accent">PostgreSQL 13</span>
+            </div>
+            <div class="flex gap-4 text-sm">
+              <span class="text-zinc-500 italic" data-i18n="proj.notDeployed">Non déployé</span>
+              <a href="https://github.com/Framanantsoa/Ticketing" target="_blank" rel="noopener" class="text-zinc-400 hover:text-white" data-i18n="proj.code">Code ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Boulangerie -->
+        <article class="group bg-surface border border-border rounded-xl overflow-hidden hover:border-primary transition">
+          <div class="h-48 bg-zinc-900 overflow-hidden">
+            <img src="assets/bakery.webp" alt="Boulangerie" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition duration-500" onerror="this.style.display='none'">
+          </div>
+          <div class="p-6">
+            <h4 class="text-xl font-semibold text-white mb-2">Boulangerie</h4>
+            <p class="text-zinc-400 text-sm mb-4" data-i18n="proj.boulangerie.desc">
+              Application web de gestion d'une boulangerie : stock d'ingrédients, recettes et ventes de produits.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="text-xs font-mono px-2 py-1 bg-base border border-border rounded text-accent">Spring MVC</span>
+              <span class="text-xs font-mono px-2 py-1 bg-base border border-border rounded text-accent">PostgreSQL 14</span>
+            </div>
+            <div class="flex gap-4 text-sm">
+              <span class="text-zinc-500 italic" data-i18n="proj.notDeployed">Non déployé</span>
+              <a href="https://github.com/Framanantsoa/Boulangerie" target="_blank" rel="noopener" class="text-zinc-400 hover:text-white" data-i18n="proj.code">Code ↗</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SKILLS ===================== -->
+  <section id="skills" class="py-24 border-t border-border">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-sm font-mono text-accent mb-2" data-i18n="skills.tag">04 — Compétences</h2>
+      <h3 class="text-3xl md:text-4xl font-bold text-white mb-12" data-i18n="skills.title">Stack technique</h3>
+
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <div class="p-6 bg-surface border border-border rounded-xl">
+          <h4 class="font-mono text-xs text-zinc-500 mb-4" data-i18n="skills.languages">LANGAGES</h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="tag">C#</span><span class="tag">Java</span><span class="tag">PHP</span>
+            <span class="tag">TypeScript</span><span class="tag">JavaScript</span><span class="tag">Ruby</span>
+            <span class="tag">Bash</span><span class="tag">SQL</span>
+          </div>
+        </div>
+
+        <div class="p-6 bg-surface border border-border rounded-xl">
+          <h4 class="font-mono text-xs text-zinc-500 mb-4" data-i18n="skills.frameworks">FRAMEWORKS</h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="tag">ASP.NET Core</span><span class="tag">Spring Boot</span>
+            <span class="tag">Node.js</span><span class="tag">Vue.js</span>
+            <span class="tag">React</span><span class="tag">SvelteKit</span>
+            <span class="tag">Laravel</span><span class="tag">Ruby on Rails</span>
+          </div>
+        </div>
+
+        <div class="p-6 bg-surface border border-border rounded-xl">
+          <h4 class="font-mono text-xs text-zinc-500 mb-4" data-i18n="skills.databases">BASES DE DONNÉES</h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="tag">PostgreSQL</span><span class="tag">MySQL</span>
+            <span class="tag">SQL Server</span><span class="tag">MongoDB</span>
+          </div>
+        </div>
+
+        <div class="p-6 bg-surface border border-border rounded-xl">
+          <h4 class="font-mono text-xs text-zinc-500 mb-4" data-i18n="skills.tools">OUTILS &amp; SYSTÈMES</h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="tag">Git / GitHub</span><span class="tag">Docker</span>
+            <span class="tag">QGIS</span><span class="tag">Figma</span>
+            <span class="tag">Gimp</span>
+            <span class="tag">Linux</span><span class="tag">Windows Server</span>
+            
+          </div>
+          <p class="text-xs text-zinc-500 mt-4 italic" data-i18n="skills.notions">
+            Notions : pfSense, Load Balancing
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section id="contact" class="py-24 border-t border-border">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+        <h2 class="text-sm font-mono text-accent mb-2" data-i18n="contact.tag">05 — Contact</h2>
+        <h3 class="text-3xl md:text-4xl font-bold text-white mb-4" data-i18n="contact.title">Travaillons ensemble</h3>
+        <p class="text-zinc-400 mb-10" data-i18n="contact.text">
+        Je suis ouvert à toute opportunité junior en développement full-stack.
+        N'hésitez pas à me contacter par email ou via LinkedIn.
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-4">
+        <a href="mailto:manantsoa.francois@gmail.com"
+            class="px-6 py-3 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg transition">
+            manantsoa.francois@gmail.com
+        </a>
+        <a href="https://github.com/Framanantsoa" target="_blank" rel="noopener"
+            class="px-6 py-3 border border-border hover:border-accent hover:text-accent rounded-lg transition">
+            GitHub ↗
+        </a>
+        <a href="https://www.linkedin.com/in/fran%C3%A7ois-andriamanantsoa-18474535a/"
+            target="_blank" rel="noopener"
+            class="px-6 py-3 border border-border hover:border-accent hover:text-accent rounded-lg transition">
+            LinkedIn ↗
+        </a>
+        </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="border-t border-border py-8 text-center text-sm text-zinc-500">
+    <p>© 2026 François ANDRIAMANANTSOA — <span>+261 34 40 454 37 / +261 37 62 687 58</span></p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
