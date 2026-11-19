@@ -1,35 +1,55 @@
 /* Base tweaks on top of Tailwind */
-::selection { background: #6366f1; color: #fff; }
+::selection {
+  background: #1E1510;
+  color: #F1ECE2;
+}
 
 /* Custom scrollbar */
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: #0a0a0f; }
-::-webkit-scrollbar-thumb { background: #1f1f2e; border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: #6366f1; }
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #E7E0D4;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CFC4B2;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9A3412;
+}
 
 /* Skill tag helper */
 .tag {
   display: inline-block;
-  padding: 0.35rem 0.75rem;
+  padding: 0.375rem 0.75rem;
   font-size: 0.75rem;
+  font-weight: 500;
   font-family: 'JetBrains Mono', monospace;
-  color: #e4e4e7;
-  background: #0a0a0f;
-  border: 1px solid #1f1f2e;
+  color: #1E1510;
+  background: #E7E0D4;
+  border: 1px solid #CFC4B2;
   border-radius: 0.375rem;
-  transition: all 0.15s ease;
+  transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease, transform 0.15s ease;
 }
+
 .tag:hover {
-  border-color: #22d3ee;
-  color: #22d3ee;
+  border-color: #9A3412;
+  color: #9A3412;
+  background: #E2D5C3;
+  transform: translateY(-1px);
 }
 
 /* Smooth section reveal */
 .reveal {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(18px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
 }
+
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
