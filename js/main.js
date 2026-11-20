@@ -99,6 +99,8 @@ const translations = {
     'proj.notDeployed': 'Non déployé',
     'proj.poultry.desc':
       "Application web de gestion d'élevage : suivi des lots, consommation d'aliments, production et mortalité des poulets.",
+    'proj.race.desc':
+      "Application desktop simulant une course automobile contre le temps sur 400 mètres, avec physique véhicule, métriques de performance et système de boost nitro temporaire.",
     'proj.recruitment.desc':
       "Application interne de gestion des demandes de recrutement : fiches de poste, candidatures et entretiens. Projet de stage chez Ravinala Airports et projet de fin d'études de Licence.",
     'proj.ticketing.desc':
@@ -183,6 +185,8 @@ const translations = {
     'proj.notDeployed': 'Not deployed',
     'proj.poultry.desc':
       'Web application for poultry farm management: flock tracking, feed consumption, production, and chicken mortality.',
+    'proj.race.desc': 
+      "Desktop application simulating a 400-meter time-trial car race with vehicle physics, performance metrics, and a temporary nitro boost system.",
     'proj.recruitment.desc':
       "Internal recruitment management application: job descriptions, applications, and interviews. Ravinala Airports internship project and Bachelor's final-year project.",
     'proj.ticketing.desc':
